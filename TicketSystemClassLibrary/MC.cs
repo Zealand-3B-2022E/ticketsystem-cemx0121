@@ -7,37 +7,16 @@ using System.Threading.Tasks;
 namespace TicketSystemClassLibrary
 {
     /// <summary>
-    /// En klasse MC der har to properties og to metoder.
+    /// A MC class which inherit from the base class Vehicle. The two abstract methods from the base class is implemented for this specific class.
     /// </summary>
-    public class MC
+    public class MC : Vehicle
     {
-        // Instansfelter
-        private string _licensePlate;
-        private DateTime _date;
-        // Properties med almindelige getter/setter
-        public string LicensePlate
-        {
-            get { return _licensePlate; }
-            set { _licensePlate = value; }
-        }
-        public DateTime Date
-        {
-            get { return _date; }
-            set { _date = value; }
-        }
-        /// <summary>
-        /// En metode der retunere den faste pris som en double
-        /// </summary>
-        /// <returns>Fast pris: 125</returns>
-        public double Price()
+        public override double Price()
         {
             return 125;
         }
-        /// <summary>
-        /// En metode der retunere hvilken køretøj type som en string
-        /// </summary>
-        /// <returns>"MC"</returns>
-        public string VehicleType()
+
+        public override string VehicleType()
         {
             return "MC";
         }
