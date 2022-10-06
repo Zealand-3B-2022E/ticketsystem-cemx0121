@@ -15,11 +15,11 @@ namespace TicketSystemClassLibrary.Tests
         MC mc = new MC();
 
         [TestMethod()]
-        public void CarPriceIsCorrectTest()
+        public void CarPriceIsCorrectWithNoBrobizzTest()
         {
             // Arrange
             double expectedValue = 240;
-            double actualValue = car.Price();
+            double actualValue = car.Price(false);
             // Act
 
             // Assert
@@ -39,11 +39,11 @@ namespace TicketSystemClassLibrary.Tests
         }
 
         [TestMethod()]
-        public void MCPriceIsCorrectTest()
+        public void MCPriceIsCorrectWithNoBrobizzTest()
         {
             // Arrange
             double expectedValue = 125;
-            double actualValue = mc.Price();
+            double actualValue = mc.Price(false);
             // Act
 
             // Assert
@@ -73,11 +73,50 @@ namespace TicketSystemClassLibrary.Tests
         [TestMethod()]
         [DataRow(null)]
         [DataRow("")]
+        [DataRow("     ")]
         public void LicenseplateIsInvalid2Test(string licenseplateTest)
         {
             
             // Assert
             Assert.ThrowsException<ArgumentNullException>(() => mc.LicensePlate = licenseplateTest);
         }
+
+        [TestMethod]
+        [DataRow("1")]
+        [DataRow("1234567")]
+        public void LicenseplateIsValidTest(string licenseplateTest)
+        {
+            // Act
+            mc.LicensePlate = licenseplateTest;
+            
+            Assert.AreEqual(licenseplateTest, mc.LicensePlate);
+
+        }
+
+        [TestMethod()]
+        public void CarPriceIsCorrectWithBrobizzTest()
+        {
+            // Arrange
+            double expectedValue = 228;
+            double actualValue = car.Price(true);
+            // Act
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod()]
+        public void MCPriceIsCorrectWithBrobizzTest()
+        {
+            // Arrange
+            double expectedValue = 118.75;
+            double actualValue = mc.Price(true);
+            // Act
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+
     }
 }

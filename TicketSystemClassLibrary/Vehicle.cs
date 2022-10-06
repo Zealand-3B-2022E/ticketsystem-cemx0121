@@ -14,6 +14,7 @@ namespace TicketSystemClassLibrary
         // Instansfelter
         private string _licensePlate;
         private DateTime _date;
+        private double _discount = 0.05;
 
         // Properties with regular getters/setters.
         public string LicensePlate
@@ -30,12 +31,13 @@ namespace TicketSystemClassLibrary
             get { return _date; }
             set { _date = value; }
         }
+        public double Discount { get => _discount; }
 
         /// <summary>
         /// An abstract method which returns the fixed price for the vehicle as a double
         /// </summary>
         /// <returns>Fixed price as a double</returns>
-        public abstract double Price();
+        public abstract double Price(bool BroBizz);
 
         /// <summary>
         /// An abstract method which returns the type of vehicle as a string. 
@@ -43,9 +45,15 @@ namespace TicketSystemClassLibrary
         /// <returns>Vehicle-type as a string</returns>
         public abstract string VehicleType();
 
+        /// <summary>
+        /// A private method that checks if the value trying to be set to LicensePlate property is valid, if not an appropiate exception is thrown.
+        /// </summary>
+        /// <param name="licenseplate">The value trying to be set to Licenseplate property</param>
+        /// <exception cref="ArgumentNullException">Is thrown if the value is null, empty og empty spaces</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Is thrown if the value is above 7 characters</exception>
         private void CheckLicensePlateIsValid(string licenseplate)
         {
-            if (string.IsNullOrEmpty(licenseplate))
+            if (string.IsNullOrEmpty(licenseplate) || string.IsNullOrWhiteSpace(licenseplate))
             {
                 throw new ArgumentNullException("A licenseplate is required");
             }
