@@ -61,5 +61,23 @@ namespace TicketSystemClassLibrary.Tests
             // Assert
             Assert.AreEqual(expectedString, actualString);
         }
+
+        [TestMethod()]
+        public void LicenseplateIsInvalid1Test()
+        {
+            // Act
+            string licenseplateTestValue = "12345678";
+            // Assert
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => mc.LicensePlate = licenseplateTestValue);   
+        }
+        [TestMethod()]
+        [DataRow(null)]
+        [DataRow("")]
+        public void LicenseplateIsInvalid2Test(string licenseplateTest)
+        {
+            
+            // Assert
+            Assert.ThrowsException<ArgumentNullException>(() => mc.LicensePlate = licenseplateTest);
+        }
     }
 }

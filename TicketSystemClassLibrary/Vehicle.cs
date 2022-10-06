@@ -16,12 +16,16 @@ namespace TicketSystemClassLibrary
         private DateTime _date;
 
         // Properties with regular getters/setters.
-        protected string LicensePlate
+        public string LicensePlate
         {
             get { return _licensePlate; }
-            set { _licensePlate = value; }
+            set 
+            {
+                CheckLicensePlateIsValid(value);
+                _licensePlate = value;
+            }
         }
-        protected DateTime Date
+        public DateTime Date
         {
             get { return _date; }
             set { _date = value; }
@@ -38,6 +42,19 @@ namespace TicketSystemClassLibrary
         /// </summary>
         /// <returns>Vehicle-type as a string</returns>
         public abstract string VehicleType();
+
+        private void CheckLicensePlateIsValid(string licenseplate)
+        {
+            if (string.IsNullOrEmpty(licenseplate))
+            {
+                throw new ArgumentNullException("A licenseplate is required");
+            }
+
+            if (licenseplate.Length > 7)
+            {
+                throw new ArgumentOutOfRangeException("A licenseplate can not be more than 7 characters");
+            }
+        }
         
     }
 }
