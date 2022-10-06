@@ -9,12 +9,13 @@ using System.Threading.Tasks;
 namespace TicketSystemClassLibrary.Tests
 {
     [TestClass()]
-    public class CarTests
+    public class VehicleTests
     {
         Car car = new Car();
+        MC mc = new MC();
 
         [TestMethod()]
-        public void PriceIsCorrectTest()
+        public void CarPriceIsCorrectTest()
         {
             // Arrange
             double expectedValue = 240;
@@ -26,11 +27,35 @@ namespace TicketSystemClassLibrary.Tests
         }
 
         [TestMethod()]
-        public void VehicleTypeIsCorrectTest()
+        public void CarVehicleTypeIsCorrectTest()
         {
             // Arrange
             string expectedString = "Car";
             string actualString = car.VehicleType();
+            // Act
+
+            // Assert
+            Assert.AreEqual(expectedString, actualString);
+        }
+
+        [TestMethod()]
+        public void MCPriceIsCorrectTest()
+        {
+            // Arrange
+            double expectedValue = 125;
+            double actualValue = mc.Price();
+            // Act
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod()]
+        public void MCVehicleTypeIsCorrectTest()
+        {
+            // Arrange
+            string expectedString = "MC";
+            string actualString = mc.VehicleType();
             // Act
 
             // Assert
