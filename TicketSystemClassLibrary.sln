@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicketSystemClassLibrary", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketSystemClassLibraryCarTests", "TicketSystemClassLibraryCarTests\TicketSystemClassLibraryCarTests.csproj", "{EDF534BA-FAF8-4926-8AAD-9E236F5A9A10}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorebæltTicketLibrary", "StorebæltTicketLibrary\StorebæltTicketLibrary.csproj", "{99DFC61F-852B-44C5-B3A5-076B5A56DF0E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{EDF534BA-FAF8-4926-8AAD-9E236F5A9A10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDF534BA-FAF8-4926-8AAD-9E236F5A9A10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDF534BA-FAF8-4926-8AAD-9E236F5A9A10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99DFC61F-852B-44C5-B3A5-076B5A56DF0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99DFC61F-852B-44C5-B3A5-076B5A56DF0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99DFC61F-852B-44C5-B3A5-076B5A56DF0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99DFC61F-852B-44C5-B3A5-076B5A56DF0E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
