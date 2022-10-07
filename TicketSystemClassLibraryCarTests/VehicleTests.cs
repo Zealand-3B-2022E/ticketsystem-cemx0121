@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StorebæltTicketLibrary;
 
 namespace TicketSystemClassLibrary.Tests
 {
@@ -13,6 +14,7 @@ namespace TicketSystemClassLibrary.Tests
     {
         Car car = new Car();
         MC mc = new MC();
+        StorebæltCar sbCar = new StorebæltCar();
 
         [TestMethod()]
         public void CarPriceIsCorrectWithNoBrobizzTest()
@@ -113,6 +115,42 @@ namespace TicketSystemClassLibrary.Tests
             double actualValue = mc.Price(true);
             // Act
 
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod()]
+        public void StorebæltCarPriceIsCorrectWithBrobizzAndWeekendTest()
+        {
+            // Arrange
+            sbCar.Date = new DateTime(2022,10,8);
+            double expectedValue = 182.4;
+            // Act
+            double actualValue = sbCar.Price(true);
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod()]
+        public void StorebæltCarPriceIsCorrectWithBrobizzTest()
+        {
+            // Arrange
+            sbCar.Date = new DateTime(2022,10,7);
+            double expectedValue = 228;
+            // Act
+            double actualValue = sbCar.Price(true);
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod()]
+        public void StorebæltCarPriceIsCorrectWithoutDiscountTest()
+        {
+            // Arrange
+            sbCar.Date = new DateTime(2022,10,7);
+            double expectedValue = 240;
+            // Act
+            double actualValue = sbCar.Price(false);
             // Assert
             Assert.AreEqual(expectedValue, actualValue);
         }
