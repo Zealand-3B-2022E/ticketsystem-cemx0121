@@ -4,6 +4,12 @@ namespace StorebæltTicketLibrary
 {
     public class StorebæltCar : Vehicle
     {
+        public StorebæltCar(string licenseplate, DateTime date, bool brobizz)
+        {
+            LicensePlate = licenseplate;
+            Date = date;
+            Brobizz = brobizz;
+        }
 
         public override double Price()
         {
