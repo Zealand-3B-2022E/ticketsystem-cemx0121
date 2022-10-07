@@ -5,7 +5,7 @@ namespace StorebæltTicketLibrary
     public class StorebæltCar : Vehicle
     {
 
-        public override double Price(bool broBizz)
+        public override double Price()
         {
             double standardPrice = 240;
             
@@ -13,9 +13,9 @@ namespace StorebæltTicketLibrary
             {
                 standardPrice = standardPrice - (240 * 0.20);
             }
-            if (broBizz == true)
+            if (Brobizz == true)
             {
-                return standardPrice - (standardPrice * Discount);
+                return standardPrice - (standardPrice * 0.05);
             }
             return standardPrice;
         }

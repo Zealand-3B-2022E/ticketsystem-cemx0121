@@ -5,12 +5,11 @@
     /// </summary>
     public class Car : Vehicle
     {
-        public override double Price(bool BroBizz)
+        public override double Price()
         {
-            if (BroBizz == true)
+            if (Brobizz == true)
             {
-                double rabatIKroner = 240  * Discount;
-                return 240 - rabatIKroner;
+                return 240 - (240 * 0.05);
             }
             return 240;
         }

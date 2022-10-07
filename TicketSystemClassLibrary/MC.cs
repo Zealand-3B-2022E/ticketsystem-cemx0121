@@ -11,12 +11,11 @@ namespace TicketSystemClassLibrary
     /// </summary>
     public class MC : Vehicle
     {
-        public override double Price(bool BroBizz)
+        public override double Price()
         {
-            if (BroBizz == true)
+            if (Brobizz == true)
             {
-                double rabatIKroner = 125 * Discount;
-                return 125 - rabatIKroner;
+                return 125 - (125 * 0.05);
             }
             return 125;
         }

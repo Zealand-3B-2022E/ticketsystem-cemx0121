@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\StorebæltTicketLibrary\StorebæltTicketLibrary.csproj" />
     <ProjectReference Include="..\TicketSystemClassLibrary\TicketSystemClassLibrary.csproj" />
+    <ProjectReference Include="..\ØresundTicketLibrary\ØresundTicketLibrary.csproj" />
   </ItemGroup>
 
 </Project>

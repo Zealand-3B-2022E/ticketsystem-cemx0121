@@ -14,7 +14,7 @@ namespace TicketSystemClassLibrary
         // Instansfelter
         private string _licensePlate;
         private DateTime _date;
-        private double _discount = 0.05;
+        private bool _broBizz;
 
         // Properties with regular getters/setters.
         public string LicensePlate
@@ -31,13 +31,16 @@ namespace TicketSystemClassLibrary
             get { return _date; }
             set { _date = value; }
         }
-        public double Discount { get => _discount; }
-
+        public bool Brobizz
+        {
+            get { return _broBizz; }
+            set { _broBizz = value; }
+        }
         /// <summary>
         /// An abstract method which returns the fixed price for the vehicle as a double
         /// </summary>
         /// <returns>Fixed price as a double</returns>
-        public abstract double Price(bool BroBizz);
+        public abstract double Price();
 
         /// <summary>
         /// An abstract method which returns the type of vehicle as a string. 

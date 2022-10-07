@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using StorebæltTicketLibrary;
+using ØresundTicketLibrary;
 
 namespace TicketSystemClassLibrary.Tests
 {
@@ -15,15 +16,17 @@ namespace TicketSystemClassLibrary.Tests
         Car car = new Car();
         MC mc = new MC();
         StorebæltCar sbCar = new StorebæltCar();
+        ØresundCar øsCar = new ØresundCar();
+        ØresundMC øsMC = new ØresundMC();
 
         [TestMethod()]
         public void CarPriceIsCorrectWithNoBrobizzTest()
         {
             // Arrange
-            double expectedValue = 240;
-            double actualValue = car.Price(false);
+            car.Brobizz = false;
             // Act
-
+            double expectedValue = 240;
+            double actualValue = car.Price();
             // Assert
             Assert.AreEqual(expectedValue, actualValue);
         }
@@ -44,10 +47,10 @@ namespace TicketSystemClassLibrary.Tests
         public void MCPriceIsCorrectWithNoBrobizzTest()
         {
             // Arrange
-            double expectedValue = 125;
-            double actualValue = mc.Price(false);
+            mc.Brobizz = false;
             // Act
-
+            double expectedValue = 125;
+            double actualValue = mc.Price();
             // Assert
             Assert.AreEqual(expectedValue, actualValue);
         }
@@ -99,10 +102,10 @@ namespace TicketSystemClassLibrary.Tests
         public void CarPriceIsCorrectWithBrobizzTest()
         {
             // Arrange
-            double expectedValue = 228;
-            double actualValue = car.Price(true);
+            car.Brobizz = true;
             // Act
-
+            double expectedValue = 228;
+            double actualValue = car.Price();
             // Assert
             Assert.AreEqual(expectedValue, actualValue);
         }
@@ -111,10 +114,10 @@ namespace TicketSystemClassLibrary.Tests
         public void MCPriceIsCorrectWithBrobizzTest()
         {
             // Arrange
-            double expectedValue = 118.75;
-            double actualValue = mc.Price(true);
+            mc.Brobizz = true;
             // Act
-
+            double expectedValue = 118.75;
+            double actualValue = mc.Price();
             // Assert
             Assert.AreEqual(expectedValue, actualValue);
         }
@@ -124,9 +127,10 @@ namespace TicketSystemClassLibrary.Tests
         {
             // Arrange
             sbCar.Date = new DateTime(2022,10,8);
-            double expectedValue = 182.4;
+            sbCar.Brobizz = true;
             // Act
-            double actualValue = sbCar.Price(true);
+            double expectedValue = 182.4;
+            double actualValue = sbCar.Price();
             // Assert
             Assert.AreEqual(expectedValue, actualValue);
         }
@@ -136,9 +140,10 @@ namespace TicketSystemClassLibrary.Tests
         {
             // Arrange
             sbCar.Date = new DateTime(2022,10,7);
-            double expectedValue = 228;
+            sbCar.Brobizz= true;
             // Act
-            double actualValue = sbCar.Price(true);
+            double expectedValue = 228;
+            double actualValue = sbCar.Price();
             // Assert
             Assert.AreEqual(expectedValue, actualValue);
         }
@@ -148,13 +153,60 @@ namespace TicketSystemClassLibrary.Tests
         {
             // Arrange
             sbCar.Date = new DateTime(2022,10,7);
-            double expectedValue = 240;
+            sbCar.Brobizz = false;
             // Act
-            double actualValue = sbCar.Price(false);
+            double expectedValue = 240;
+            double actualValue = sbCar.Price();
             // Assert
             Assert.AreEqual(expectedValue, actualValue);
         }
 
+        [TestMethod()]
+        public void ØresundCarPriceIsCorrectWithBrobizzTest()
+        {
+            // Arrange
+            øsCar.Brobizz = true;
+            // Act
+            double expectedValue = 161;
+            double actualValue = øsCar.Price();
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
 
+        [TestMethod()]
+        public void ØresundCarPriceIsCorrectWithoutBrobizzTest()
+        {
+            // Arrange
+            øsCar.Brobizz = false;
+            // Act
+            double expectedValue = 410;
+            double actualValue = øsCar.Price();
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod()]
+        public void ØresundMCPriceIsCorrectWithBrobizzTest()
+        {
+            // Arrange
+            øsMC.Brobizz = true;
+            // Act
+            double expectedValue = 73;
+            double actualValue = øsMC.Price();
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod()]
+        public void ØresundMCPriceIsCorrectWithoutBrobizzTest()
+        {
+            // Arrange
+            øsMC.Brobizz = false;
+            // Act
+            double expectedValue = 210;
+            double actualValue = øsMC.Price();
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
     }
 }
