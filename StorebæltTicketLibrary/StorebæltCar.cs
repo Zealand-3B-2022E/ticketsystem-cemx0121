@@ -10,6 +10,10 @@ namespace StorebæltTicketLibrary
             Date = date;
             Brobizz = brobizz;
         }
+        public StorebæltCar()
+        {
+
+        }
 
         public override double Price()
         {
