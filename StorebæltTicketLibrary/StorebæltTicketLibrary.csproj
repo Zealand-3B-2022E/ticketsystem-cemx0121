@@ -7,4 +7,10 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="TicketSystemClassLibrary">
+      <HintPath>..\..\..\..\..\OneDrive\Skrivebord\TicketSystem - Cem Turan\TicketSystemClassLibrary.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
